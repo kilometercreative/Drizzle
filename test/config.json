@@ -1,0 +1,18 @@
+{
+  "include": [],
+  "exclude": [
+    "*.pyc",
+    "*__pycache__*",
+    "*config.json"
+  ],
+  "aws": {
+    "function-name": "test",
+    "handler": "test.lambda_handler",
+    "description": "The test lambda function",
+    "timeout": 3,
+    "environment": {
+      "Variables": {
+      }
+    }
+  }
+}

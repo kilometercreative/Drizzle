@@ -1,1 +1,2 @@
 include drz/docs/*
+include drz/templates/*
