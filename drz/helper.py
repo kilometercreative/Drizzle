@@ -1,4 +1,6 @@
 import os
+import json
+from .errors import DrizzleException
 
 
 def path_to(*file, loc=""):
@@ -30,3 +32,26 @@ def write_replacing(src, dst, replacements):
     dst = open(dst, 'w')
     dst.write(src_data)
     dst.close()
+
+
+class DrizzleWrapper:
+    def __init__(self, contents):
+        self._contents = contents
+
+    def __getitem__(self, item):
+        if item in self._contents:
+            return self._contents[item]
+        raise DrizzleException("Malformed drizzle.json, could not find property '%s'" % item)
+
+
+def get_drizzle_json():
+    p_drizzle = path_to("drizzle.json")
+
+    if not os.path.exists(p_drizzle):
+        raise DrizzleException("Couldn't find drizzle.json")
+
+    drizzle_file = open(p_drizzle, 'r')
+    contents = json.load(drizzle_file)
+    drizzle_file.close()
+
+    return DrizzleWrapper(contents)

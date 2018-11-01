@@ -9,8 +9,8 @@ setup(name='drz',
       license='MIT',
       packages=['drz'],
       entry_points={'console_scripts': ['drz=drz:entrypoint']},
-      # install_requires=[
-      #     'awscli',  # just so we have it downloaded
-      # ],
+      install_requires=[
+          'boto3',  # just so we have it downloaded
+      ],
       include_package_data=True,
       zip_safe=False)

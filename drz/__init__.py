@@ -1,7 +1,7 @@
 import sys
 
 from .methods import COMMAND_MAP
-from .errors import no_args, unknown_command
+from .errors import DrizzleException, no_args, unknown_command, generic_error
 
 
 def entrypoint():
@@ -10,6 +10,10 @@ def entrypoint():
 
     command = sys.argv[1]
     if command in COMMAND_MAP:
-        COMMAND_MAP[command].func(sys.argv[2:])
+        try:
+            COMMAND_MAP[command].func(**COMMAND_MAP[command].parse_args(sys.argv[2:]))
+        except DrizzleException as er:
+            generic_error(er.message)
     else:
         unknown_command(command)
+
