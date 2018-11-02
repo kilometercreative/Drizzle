@@ -22,9 +22,7 @@ def conflicting_exists(*paths):
 
 # Not safe, doesn't check if file exists--will overwrite
 def write_replacing(src, dst, replacements):
-    src = open(src, 'r')
-    src_data = src.read()
-    src.close()
+    src_data = contents_of(src)
 
     for original in replacements:
         src_data = src_data.replace(original, replacements[original])
@@ -32,6 +30,15 @@ def write_replacing(src, dst, replacements):
     dst = open(dst, 'w')
     dst.write(src_data)
     dst.close()
+
+
+# Not safe, will throw error if file_name isn't a valid path
+def contents_of(path):
+    f = open(path, 'r')
+    contents = f.read()
+    f.close()
+
+    return contents
 
 
 class DrizzleWrapper:
@@ -50,8 +57,4 @@ def get_drizzle_json():
     if not os.path.exists(p_drizzle):
         raise DrizzleException("Couldn't find drizzle.json")
 
-    drizzle_file = open(p_drizzle, 'r')
-    contents = json.load(drizzle_file)
-    drizzle_file.close()
-
-    return DrizzleWrapper(contents)
+    return DrizzleWrapper(json.load(contents_of(p_drizzle)))

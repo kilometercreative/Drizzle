@@ -1,7 +1,7 @@
 import json
 from functools import reduce
 
-from .helper import path_to
+from .helper import path_to, contents_of
 from .errors import DrizzleException
 
 
@@ -43,8 +43,4 @@ class Command:
         return {"pos": positional_args, "named": named_args, "flags": flags}
 
     def docs(self):
-        docs_file = open(path_to(self._docs, loc='docs'), 'r')
-        contents = json.load(docs_file)
-        docs_file.close()
-
-        return contents
+        return json.load(contents_of(path_to(self._docs, loc='docs')))

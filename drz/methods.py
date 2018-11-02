@@ -1,9 +1,9 @@
 import os
-import boto3
 from functools import reduce
 
 from .command import Command
-from .helper import path_to, conflicting_exists, write_replacing, get_drizzle_json
+from .aws import config_profile, aws
+from .helper import path_to, conflicting_exists, write_replacing, contents_of, get_drizzle_json
 
 
 def drizzle_help(pos, named, flags):
@@ -28,17 +28,15 @@ def setup(pos, named, flags):
     os.makedirs(p_lib)
     os.makedirs(p_shared)
 
-    access = named.get("access")
-    if not access:
-        access = input("AWS Access Key ID: ")
+    profile = named.get("profile")
+    if not profile:
+        profile = input("AWS Profile Name [default]: ") or "default"
 
-    secret = named.get("secret")
-    if not secret:
-        secret = input("AWS Secret Access Key: ")
+    config_profile(profile)
 
     write_replacing(path_to("drizzle.json", loc="templates"),
                     p_drizzle,
-                    replacements={"$access": access, "$secret": secret})
+                    replacements={"$profile": profile})
 
 
 def add(pos, named, flags):
@@ -62,14 +60,12 @@ def add(pos, named, flags):
                     path_to(name, "__init__.py"),
                     replacements={"$1": name})
 
-    iam = boto3.client('iam',
-                       aws_access_key_id=drizzle["AWS Access Key"],
-                       aws_secret_access_key=drizzle["AWS Secret Key"])
+    iam = aws('iam')
     iam.create_role(RoleName=role_name,
-                    AssumeRolePolicyDocument=open(path_to("lambda_trust", loc="templates"), 'r').read())
+                    AssumeRolePolicyDocument=contents_of(path_to("lambda_trust", loc="templates")))
     iam.put_role_policy(RoleName=role_name,
                         PolicyName='lambda_logs',
-                        PolicyDocument=open(path_to("lambda_policy", loc="templates"), 'r').read())
+                        PolicyDocument=contents_of(path_to("lambda_policy", loc="templates")))
 
     # boto3.client('lambda').create_function(
     # boto3.lambda.create_function()
@@ -82,7 +78,7 @@ def deploy():
 # Compile commands into dictionary
 COMMANDS = [
     Command(drizzle_help, "help", "help.json"),
-    Command(setup, "setup", "setup.json", args=["access", "secret"]),
+    Command(setup, "setup", "setup.json", args=["profile"]),
     Command(add, "add", "add.json"),
     Command(deploy, "deploy", "deploy.json"),
 ]
