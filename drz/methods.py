@@ -5,7 +5,8 @@ from functools import reduce
 
 from .command import Command
 from .aws import config_profile, aws
-from .helper import path_to, conflicting_exists, write_replacing, contents_of, zip_into, get_drizzle_json
+from .helper import DrizzleWrapper, path_to, conflicting_exists, write_replacing, contents_of, zip_into
+from .errors import DrizzleException
 
 
 def drizzle_help(pos, named, flags):
@@ -50,8 +51,6 @@ def add(pos, named, flags):
     if len(pos) != 1:
         return print("Usage: drz add <name>")
 
-    drizzle = get_drizzle_json()
-
     name = pos[0]
     role_name = '%s_drizzle' % name
     p_fun = path_to(name)
@@ -69,7 +68,8 @@ def add(pos, named, flags):
 
     iam = aws('iam')
     role_arn = iam.create_role(RoleName=role_name,
-                               AssumeRolePolicyDocument=contents_of(path_to("lambda_trust", loc="templates")))["Role"]["Arn"]
+                               AssumeRolePolicyDocument=contents_of(path_to("lambda_trust", loc="templates"))
+                               )["Role"]["Arn"]
     iam.put_role_policy(RoleName=role_name,
                         PolicyName='lambda_logs',
                         PolicyDocument=contents_of(path_to("lambda_policy", loc="templates")))
@@ -86,20 +86,24 @@ def add(pos, named, flags):
             Code={'ZipFile': bundle.read()})
 
 
-def build(pos, named={}, flags={}):
+def build(pos=None, named=None, flags=None):
     # Able to run from:
     # - command line, within function (with or without pos[0] as name)
     # - project, supplying pos[0] as name of function
     # - another function
 
-    # TODO check if this is drizzle function or drizzle project
-
+    # if drizzle function
     if len(pos) > 0:
         name = pos[0]
-        config = json.loads(contents_of(path_to(name, "config.json")))
     else:
-        config = json.loads(contents_of(path_to("config.json")))
-        name = 'test'
+        name = os.path.basename(os.getcwd())
+        os.chdir("..")
+
+    p_config = path_to(name, "config.json")
+    print(p_config)
+    if not os.path.exists(p_config):
+        raise DrizzleException("Couldn't find config.json for function '%s'" % name)
+    config = DrizzleWrapper("config.json", p_config)
 
     # create build folder if it doesn't exist
     p_build = path_to('.deploy/build')

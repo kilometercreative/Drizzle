@@ -3,6 +3,18 @@ import json
 from .errors import DrizzleException
 
 
+class DrizzleWrapper:
+
+    def __init__(self, file_name, path):
+        self._file_name = file_name
+        self._contents = json.loads(contents_of(path))
+
+    def __getitem__(self, item):
+        if item in self._contents:
+            return self._contents[item]
+        raise DrizzleException("Malformed %s, could not find property '%s'" % (self._file_name, item))
+
+
 def path_to(*file, loc=""):
     file = map(os.path.expanduser, file)
 
@@ -44,24 +56,36 @@ def contents_of(path):
 
 
 def zip_into(bundle, path, exclude, include=None):
-    for root, dirs, files in os.walk(path):
-        for file in files:
-            if include:
-                should_include = False
-                # todo do it on paths and pass it down?
-            else:
-                should_include = True
+    """When include is specified, only top-level files that
+    pass the include will be bundled."""
 
-            if should_include:
-                for ex in exclude:
-                    if _pattern_matcher(file, ex):
-                        should_include = False
+    def add_to_bundle(r, f):
+        bundle.write(os.path.relpath(os.path.join(r, f)))
+
+    for root, dirs, files in os.walk(path):
+        if include is not None and path is root:
+            for file in files:
+                for rule in include:
+                    if _pattern_matcher(file, rule):
+                        add_to_bundle(root, file)  # doesn't respect excludes
                         break
 
-            if not should_include:
-                continue
+            bad_dirs = []
+            for directory in dirs:
+                for rule in include:
+                    if _pattern_matcher(directory, rule):
+                        break
+                else:
+                    bad_dirs.append(directory)
+            dirs[:] = [d for d in dirs if d not in bad_dirs]
+            continue
 
-            bundle.write(os.path.relpath(os.path.join(root, file)))
+        for file in files:
+            for ex in exclude:
+                if _pattern_matcher(file, ex):
+                    break
+            else:
+                add_to_bundle(root, file)
 
 
 def _pattern_matcher(filename, pattern):
@@ -73,7 +97,7 @@ def _pattern_matcher(filename, pattern):
             return True
 
         if parts[0]:
-            return (not remaining.startswith(parts[0])) and recursive(remaining[len(parts[0]):], parts[1:])
+            return remaining.startswith(parts[0]) and recursive(remaining[len(parts[0]):], parts[1:])
         elif len(parts) == 1:
             return True
         elif not parts[1]:
@@ -86,20 +110,10 @@ def _pattern_matcher(filename, pattern):
     return recursive(filename, pattern.split('*'))
 
 
-class DrizzleWrapper:
-    def __init__(self, contents):
-        self._contents = contents
-
-    def __getitem__(self, item):
-        if item in self._contents:
-            return self._contents[item]
-        raise DrizzleException("Malformed drizzle.json, could not find property '%s'" % item)
-
-
 def get_drizzle_json():
     p_drizzle = path_to("drizzle.json")
 
     if not os.path.exists(p_drizzle):
         raise DrizzleException("Couldn't find drizzle.json")
 
-    return DrizzleWrapper(json.loads(contents_of(p_drizzle)))
+    return DrizzleWrapper("drizzle.json", p_drizzle)
