@@ -2,12 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="aa00acc3-8a8d-41d0-a01c-7cfd888e6df1" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/drz/aws.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/drz/command.py" beforeDir="false" afterPath="$PROJECT_DIR$/drz/command.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/drz/aws.py" beforeDir="false" afterPath="$PROJECT_DIR$/drz/aws.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/drz/helper.py" beforeDir="false" afterPath="$PROJECT_DIR$/drz/helper.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/drz/methods.py" beforeDir="false" afterPath="$PROJECT_DIR$/drz/methods.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/drz/templates/drizzle.json" beforeDir="false" afterPath="$PROJECT_DIR$/drz/templates/drizzle.json" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -52,25 +49,25 @@
     <session id="-1044410245">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="6" />
+          <entry key="project.closed" value="7" />
           <entry key="project.open.time.0" value="1" />
           <entry key="project.open.time.11" value="1" />
           <entry key="project.open.time.4" value="1" />
-          <entry key="project.open.time.5" value="2" />
+          <entry key="project.open.time.5" value="3" />
           <entry key="project.open.time.6" value="1" />
           <entry key="project.open.time.8" value="1" />
-          <entry key="project.opened" value="7" />
+          <entry key="project.opened" value="8" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="LICENSE" value="24" />
-          <entry key="Python Console" value="703" />
+          <entry key="Python Console" value="751" />
           <entry key="gitignore" value="24" />
           <entry key="in" value="34" />
           <entry key="json" value="433" />
           <entry key="md" value="1004" />
-          <entry key="py" value="10691" />
+          <entry key="py" value="10751" />
           <entry key="sh" value="133" />
         </counts>
       </usages-collector>
@@ -80,7 +77,7 @@
           <entry key="JSON" value="433" />
           <entry key="Markdown" value="1004" />
           <entry key="PLAIN_TEXT" value="82" />
-          <entry key="Python" value="11394" />
+          <entry key="Python" value="11502" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -89,7 +86,7 @@
           <entry key="gitattributes" value="1" />
           <entry key="gitignore" value="2" />
           <entry key="in" value="3" />
-          <entry key="json" value="17" />
+          <entry key="json" value="18" />
           <entry key="lambda_policy" value="2" />
           <entry key="lambda_trust" value="1" />
           <entry key="md" value="4" />
@@ -100,7 +97,7 @@
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="Bash" value="3" />
-          <entry key="JSON" value="17" />
+          <entry key="JSON" value="18" />
           <entry key="Markdown" value="4" />
           <entry key="PLAIN_TEXT" value="10" />
           <entry key="Python" value="16" />
@@ -115,7 +112,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/drz/__init__.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="195">
+            <state relative-caret-position="150">
               <caret line="13" column="40" selection-start-line="13" selection-start-column="40" selection-end-line="13" selection-end-column="40" />
               <folding>
                 <element signature="e#0#10#0" expanded="true" />
@@ -127,8 +124,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/drz/methods.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="189">
-              <caret line="41" column="27" lean-forward="true" selection-start-line="41" selection-start-column="27" selection-end-line="41" selection-end-column="27" />
+            <state relative-caret-position="608">
+              <caret line="41" column="27" selection-start-line="41" selection-start-column="27" selection-end-line="41" selection-end-column="27" />
               <folding>
                 <element signature="e#0#9#0" expanded="true" />
                 <marker date="1541182490715" expanded="true" signature="202:204" ph="..." />
@@ -144,11 +141,11 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/drz/aws.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="45">
-              <caret line="3" column="28" selection-start-line="3" selection-start-column="28" selection-end-line="3" selection-end-column="28" />
+            <state relative-caret-position="75">
+              <caret line="5" lean-forward="true" selection-start-line="5" selection-end-line="6" selection-end-column="49" />
               <folding>
                 <element signature="e#0#9#0" expanded="true" />
-                <marker date="1541182506901" expanded="true" signature="267:455" ph="..." />
+                <marker date="1541211194924" expanded="true" signature="268:456" ph="..." />
               </folding>
             </state>
           </provider>
@@ -166,19 +163,19 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/drz/helper.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-21">
-              <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
+            <state relative-caret-position="75">
+              <caret line="5" selection-start-line="5" selection-end-line="11" selection-end-column="66" />
               <folding>
                 <element signature="e#0#9#0" expanded="true" />
-                <marker date="1541180437034" expanded="true" signature="59:61" ph="..." />
-                <marker date="1541180437034" expanded="true" signature="60:61" ph="..." />
-                <marker date="1541180437034" expanded="true" signature="263:268" ph="..." />
-                <marker date="1541180437034" expanded="true" signature="557:560" ph="..." />
-                <marker date="1541180437034" expanded="true" signature="661:666" ph="..." />
-                <marker date="1541180437034" expanded="true" signature="950:955" ph="..." />
-                <marker date="1541180437034" expanded="true" signature="950:1036" ph="..." />
-                <marker date="1541180437034" expanded="true" signature="1057:1062" ph="..." />
-                <marker date="1541180437034" expanded="true" signature="1057:1331" ph="..." />
+                <marker date="1541211228853" expanded="true" signature="59:61" ph="..." />
+                <marker date="1541211228853" expanded="true" signature="60:61" ph="..." />
+                <marker date="1541211228853" expanded="true" signature="305:310" ph="..." />
+                <marker date="1541211228853" expanded="true" signature="599:602" ph="..." />
+                <marker date="1541211228853" expanded="true" signature="703:708" ph="..." />
+                <marker date="1541211228853" expanded="true" signature="992:997" ph="..." />
+                <marker date="1541211228853" expanded="true" signature="992:1078" ph="..." />
+                <marker date="1541211228853" expanded="true" signature="1099:1104" ph="..." />
+                <marker date="1541211228853" expanded="true" signature="1099:1373" ph="..." />
               </folding>
             </state>
           </provider>
@@ -187,8 +184,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/drz/command.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="16" column="36" lean-forward="true" selection-start-line="16" selection-start-column="36" selection-end-line="16" selection-end-column="36" />
+            <state relative-caret-position="180">
+              <caret line="16" column="36" selection-start-line="16" selection-start-column="36" selection-end-line="16" selection-end-column="36" />
               <folding>
                 <element signature="e#0#11#0" expanded="true" />
               </folding>
@@ -219,6 +216,7 @@
       <find>l=</find>
       <find>l</find>
       <find>open</find>
+      <find>~</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -249,11 +247,11 @@
         <option value="$PROJECT_DIR$/drz/__init__.py" />
         <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/drz/templates/lambda_trust" />
-        <option value="$PROJECT_DIR$/drz/helper.py" />
         <option value="$PROJECT_DIR$/drz/command.py" />
         <option value="$PROJECT_DIR$/drz/templates/drizzle.json" />
         <option value="$PROJECT_DIR$/drz/methods.py" />
         <option value="$PROJECT_DIR$/drz/aws.py" />
+        <option value="$PROJECT_DIR$/drz/helper.py" />
       </list>
     </option>
   </component>
@@ -337,9 +335,8 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
-    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.18263888" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.1881259" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -354,7 +351,7 @@
       <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
       <window_info anchor="bottom" id="Terminal" order="11" weight="0.48915663" />
-      <window_info anchor="bottom" id="Python Console" order="12" weight="0.32079905" />
+      <window_info active="true" anchor="bottom" id="Python Console" order="12" visible="true" weight="0.32048193" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -463,13 +460,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/drizzle.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" column="1" lean-forward="true" selection-start-line="3" selection-start-column="1" selection-end-line="3" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
@@ -477,13 +467,6 @@
             <caret line="5" lean-forward="true" selection-start-line="5" selection-end-line="5" />
           </first_editor>
           <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/drz/errors.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="17" column="13" selection-start-line="17" selection-start-column="13" selection-end-line="18" selection-end-column="51" />
         </state>
       </provider>
     </entry>
@@ -501,19 +484,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/drz/command.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="16" column="36" lean-forward="true" selection-start-line="16" selection-start-column="36" selection-end-line="16" selection-end-column="36" />
-          <folding>
-            <element signature="e#0#11#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/drizzle.json" />
     <entry file="file://$PROJECT_DIR$/drz/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
+        <state relative-caret-position="150">
           <caret line="13" column="40" selection-start-line="13" selection-start-column="40" selection-end-line="13" selection-end-column="40" />
           <folding>
             <element signature="e#0#10#0" expanded="true" />
@@ -521,22 +495,20 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/drz/helper.py">
+    <entry file="file://$PROJECT_DIR$/drz/command.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-21">
-          <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
+        <state relative-caret-position="180">
+          <caret line="16" column="36" selection-start-line="16" selection-start-column="36" selection-end-line="16" selection-end-column="36" />
           <folding>
-            <element signature="e#0#9#0" expanded="true" />
-            <marker date="1541180437034" expanded="true" signature="59:61" ph="..." />
-            <marker date="1541180437034" expanded="true" signature="60:61" ph="..." />
-            <marker date="1541180437034" expanded="true" signature="263:268" ph="..." />
-            <marker date="1541180437034" expanded="true" signature="557:560" ph="..." />
-            <marker date="1541180437034" expanded="true" signature="661:666" ph="..." />
-            <marker date="1541180437034" expanded="true" signature="950:955" ph="..." />
-            <marker date="1541180437034" expanded="true" signature="950:1036" ph="..." />
-            <marker date="1541180437034" expanded="true" signature="1057:1062" ph="..." />
-            <marker date="1541180437034" expanded="true" signature="1057:1331" ph="..." />
+            <element signature="e#0#11#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/drz/errors.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="17" column="13" selection-start-line="17" selection-start-column="13" selection-end-line="18" selection-end-column="51" />
         </state>
       </provider>
     </entry>
@@ -549,8 +521,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/drz/methods.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="189">
-          <caret line="41" column="27" lean-forward="true" selection-start-line="41" selection-start-column="27" selection-end-line="41" selection-end-column="27" />
+        <state relative-caret-position="608">
+          <caret line="41" column="27" selection-start-line="41" selection-start-column="27" selection-end-line="41" selection-end-column="27" />
           <folding>
             <element signature="e#0#9#0" expanded="true" />
             <marker date="1541182490715" expanded="true" signature="202:204" ph="..." />
@@ -562,13 +534,32 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/drz/aws.py">
+    <entry file="file://$PROJECT_DIR$/drz/helper.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" column="28" selection-start-line="3" selection-start-column="28" selection-end-line="3" selection-end-column="28" />
+        <state relative-caret-position="75">
+          <caret line="5" selection-start-line="5" selection-end-line="11" selection-end-column="66" />
           <folding>
             <element signature="e#0#9#0" expanded="true" />
-            <marker date="1541182506901" expanded="true" signature="267:455" ph="..." />
+            <marker date="1541211228853" expanded="true" signature="59:61" ph="..." />
+            <marker date="1541211228853" expanded="true" signature="60:61" ph="..." />
+            <marker date="1541211228853" expanded="true" signature="305:310" ph="..." />
+            <marker date="1541211228853" expanded="true" signature="599:602" ph="..." />
+            <marker date="1541211228853" expanded="true" signature="703:708" ph="..." />
+            <marker date="1541211228853" expanded="true" signature="992:997" ph="..." />
+            <marker date="1541211228853" expanded="true" signature="992:1078" ph="..." />
+            <marker date="1541211228853" expanded="true" signature="1099:1104" ph="..." />
+            <marker date="1541211228853" expanded="true" signature="1099:1373" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/drz/aws.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" lean-forward="true" selection-start-line="5" selection-end-line="6" selection-end-column="49" />
+          <folding>
+            <element signature="e#0#9#0" expanded="true" />
+            <marker date="1541211194924" expanded="true" signature="268:456" ph="..." />
           </folding>
         </state>
       </provider>

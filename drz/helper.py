@@ -4,6 +4,8 @@ from .errors import DrizzleException
 
 
 def path_to(*file, loc=""):
+    file = map(os.path.expanduser, file)
+
     if not loc:
         return os.path.join(os.getcwd(), *file)
     else:

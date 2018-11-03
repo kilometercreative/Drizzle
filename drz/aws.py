@@ -3,6 +3,7 @@ import boto3
 import re
 from .helper import path_to, contents_of, get_drizzle_json
 
+
 p_aws_credentials = path_to("~/.aws/credentials")
 
 
