@@ -1,3 +1,4 @@
 {
-  "AWS Profile": "$profile"
+  "profile": "$profile",
+  "region": "$region"
 }

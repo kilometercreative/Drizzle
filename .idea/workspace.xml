@@ -2,12 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="aa00acc3-8a8d-41d0-a01c-7cfd888e6df1" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/drz/templates/BUILD.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/drz/aws.py" beforeDir="false" afterPath="$PROJECT_DIR$/drz/aws.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/drz/helper.py" beforeDir="false" afterPath="$PROJECT_DIR$/drz/helper.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/drz/methods.py" beforeDir="false" afterPath="$PROJECT_DIR$/drz/methods.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/drz/templates/drizzle.json" beforeDir="false" afterPath="$PROJECT_DIR$/drz/templates/drizzle.json" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -68,19 +65,19 @@
           <entry key="Python Console" value="1153" />
           <entry key="gitignore" value="29" />
           <entry key="in" value="34" />
-          <entry key="json" value="445" />
+          <entry key="json" value="495" />
           <entry key="md" value="1379" />
-          <entry key="py" value="13802" />
+          <entry key="py" value="14087" />
           <entry key="sh" value="133" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="Bash" value="133" />
-          <entry key="JSON" value="445" />
+          <entry key="JSON" value="495" />
           <entry key="Markdown" value="1379" />
           <entry key="PLAIN_TEXT" value="87" />
-          <entry key="Python" value="14955" />
+          <entry key="Python" value="15240" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -89,21 +86,21 @@
           <entry key="gitattributes" value="1" />
           <entry key="gitignore" value="3" />
           <entry key="in" value="3" />
-          <entry key="json" value="22" />
+          <entry key="json" value="25" />
           <entry key="lambda_policy" value="2" />
           <entry key="lambda_trust" value="1" />
           <entry key="md" value="5" />
-          <entry key="py" value="20" />
+          <entry key="py" value="21" />
           <entry key="sh" value="3" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="Bash" value="3" />
-          <entry key="JSON" value="22" />
+          <entry key="JSON" value="25" />
           <entry key="Markdown" value="5" />
           <entry key="PLAIN_TEXT" value="12" />
-          <entry key="Python" value="20" />
+          <entry key="Python" value="21" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.vcs.git.usages" />
@@ -124,30 +121,43 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/drz/methods.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="456">
-              <caret line="101" column="22" selection-start-line="101" selection-start-column="22" selection-end-line="101" selection-end-column="22" />
+            <state relative-caret-position="660">
+              <caret line="85" column="44" selection-start-line="85" selection-start-column="44" selection-end-line="85" selection-end-column="44" />
               <folding>
                 <element signature="e#0#9#0" expanded="true" />
-                <marker date="1541223232205" expanded="true" signature="239:241" ph="..." />
-                <marker date="1541223232205" expanded="true" signature="277:282" ph="..." />
-                <marker date="1541223232205" expanded="true" signature="472:474" ph="..." />
-                <marker date="1541223232205" expanded="true" signature="1128:1133" ph="..." />
-                <marker date="1541223232205" expanded="true" signature="1128:3371" ph="..." />
-                <marker date="1541223232205" expanded="true" signature="2642:3371" ph="..." />
-                <marker date="1541223232205" expanded="true" signature="3401:3406" ph="..." />
+                <marker date="1541224681116" expanded="true" signature="239:241" ph="..." />
+                <marker date="1541224681116" expanded="true" signature="277:282" ph="..." />
+                <marker date="1541224681116" expanded="true" signature="472:474" ph="..." />
+                <marker date="1541224681116" expanded="true" signature="1300:1305" ph="..." />
+                <marker date="1541224681116" expanded="true" signature="1300:3670" ph="..." />
+                <marker date="1541224681116" expanded="true" signature="2941:3670" ph="..." />
+                <marker date="1541224681116" expanded="true" signature="3700:3705" ph="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/.gitignore">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/drz/aws.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="495">
+              <caret line="33" column="49" selection-start-line="33" selection-start-column="49" selection-end-line="33" selection-end-column="49" />
+              <folding>
+                <element signature="e#0#9#0" expanded="true" />
+                <marker date="1541224412348" expanded="true" signature="268:456" ph="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/test/drizzle.json">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="45">
-              <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
+              <caret line="3" column="1" selection-start-line="3" selection-start-column="1" selection-end-line="3" selection-end-column="1" />
             </state>
           </provider>
         </entry>
@@ -165,23 +175,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/drz/aws.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="465">
-              <caret line="31" column="32" selection-start-line="31" selection-start-column="32" selection-end-line="31" selection-end-column="32" />
-              <folding>
-                <element signature="e#0#9#0" expanded="true" />
-                <marker date="1541221788063" expanded="true" signature="268:456" ph="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/drz/templates/config.json">
+        <entry file="file://$PROJECT_DIR$/drz/templates/drizzle.json">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="30">
-              <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+              <caret line="2" column="16" selection-start-line="2" selection-start-column="16" selection-end-line="2" selection-end-column="16" />
             </state>
           </provider>
         </entry>
@@ -279,15 +276,15 @@
         <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/drz/templates/lambda_trust" />
         <option value="$PROJECT_DIR$/drz/command.py" />
-        <option value="$PROJECT_DIR$/drz/templates/drizzle.json" />
         <option value="$PROJECT_DIR$/drz/templates/config.json" />
-        <option value="$PROJECT_DIR$/drz/aws.py" />
-        <option value="$PROJECT_DIR$/test/drizzle.json" />
         <option value="$PROJECT_DIR$/drz/helper.py" />
         <option value="$PROJECT_DIR$/test/shared/__init__.py" />
         <option value="$PROJECT_DIR$/drz/templates/BUILD.md" />
-        <option value="$PROJECT_DIR$/drz/methods.py" />
         <option value="$PROJECT_DIR$/.gitignore" />
+        <option value="$PROJECT_DIR$/drz/templates/drizzle.json" />
+        <option value="$PROJECT_DIR$/drz/aws.py" />
+        <option value="$PROJECT_DIR$/test/drizzle.json" />
+        <option value="$PROJECT_DIR$/drz/methods.py" />
       </list>
     </option>
   </component>
@@ -513,13 +510,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/drz/templates/drizzle.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" column="3" selection-start-line="1" selection-start-column="3" selection-end-line="1" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/drz/errors.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
@@ -527,45 +517,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test/drizzle.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="1" selection-start-line="2" selection-start-column="1" selection-end-line="2" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/test/shared/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
         <state>
           <caret column="22" selection-start-column="22" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/drz/aws.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="465">
-          <caret line="31" column="32" selection-start-line="31" selection-start-column="32" selection-end-line="31" selection-end-column="32" />
-          <folding>
-            <element signature="e#0#9#0" expanded="true" />
-            <marker date="1541221788063" expanded="true" signature="268:456" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/drz/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="12" column="12" selection-start-line="12" selection-start-column="12" selection-end-line="12" selection-end-column="12" />
-          <folding>
-            <element signature="e#0#10#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/drz/templates/config.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
         </state>
       </provider>
     </entry>
@@ -579,13 +534,24 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/drz/templates/BUILD.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="45">
-            <caret line="3" selection-start-line="3" selection-end-line="3" />
-          </first_editor>
-          <second_editor />
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/drz/templates/config.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/drz/templates/drizzle.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="16" selection-start-line="2" selection-start-column="16" selection-end-line="2" selection-end-column="16" />
         </state>
       </provider>
     </entry>
@@ -612,27 +578,58 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/drz/methods.py">
+    <entry file="file://$PROJECT_DIR$/drz/templates/BUILD.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="45">
+            <caret line="3" selection-start-line="3" selection-end-line="3" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/drz/aws.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="456">
-          <caret line="101" column="22" selection-start-line="101" selection-start-column="22" selection-end-line="101" selection-end-column="22" />
+        <state relative-caret-position="495">
+          <caret line="33" column="49" selection-start-line="33" selection-start-column="49" selection-end-line="33" selection-end-column="49" />
           <folding>
             <element signature="e#0#9#0" expanded="true" />
-            <marker date="1541223232205" expanded="true" signature="239:241" ph="..." />
-            <marker date="1541223232205" expanded="true" signature="277:282" ph="..." />
-            <marker date="1541223232205" expanded="true" signature="472:474" ph="..." />
-            <marker date="1541223232205" expanded="true" signature="1128:1133" ph="..." />
-            <marker date="1541223232205" expanded="true" signature="1128:3371" ph="..." />
-            <marker date="1541223232205" expanded="true" signature="2642:3371" ph="..." />
-            <marker date="1541223232205" expanded="true" signature="3401:3406" ph="..." />
+            <marker date="1541224412348" expanded="true" signature="268:456" ph="..." />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
+    <entry file="file://$PROJECT_DIR$/test/drizzle.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="45">
-          <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
+          <caret line="3" column="1" selection-start-line="3" selection-start-column="1" selection-end-line="3" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/drz/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="12" column="12" selection-start-line="12" selection-start-column="12" selection-end-line="12" selection-end-column="12" />
+          <folding>
+            <element signature="e#0#10#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/drz/methods.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="660">
+          <caret line="85" column="44" selection-start-line="85" selection-start-column="44" selection-end-line="85" selection-end-column="44" />
+          <folding>
+            <element signature="e#0#9#0" expanded="true" />
+            <marker date="1541224681116" expanded="true" signature="239:241" ph="..." />
+            <marker date="1541224681116" expanded="true" signature="277:282" ph="..." />
+            <marker date="1541224681116" expanded="true" signature="472:474" ph="..." />
+            <marker date="1541224681116" expanded="true" signature="1300:1305" ph="..." />
+            <marker date="1541224681116" expanded="true" signature="1300:3670" ph="..." />
+            <marker date="1541224681116" expanded="true" signature="2941:3670" ph="..." />
+            <marker date="1541224681116" expanded="true" signature="3700:3705" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>

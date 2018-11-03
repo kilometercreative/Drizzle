@@ -34,11 +34,16 @@ def setup(pos, named, flags):
     if not profile:
         profile = input("AWS Profile Name [default]: ") or "default"
 
+    region = named.get("region")
+    if not region:
+        region = input("AWS Region [us-west-2]: ") or "us-west-2"
+
     config_profile(profile)
 
     write_replacing(path_to("drizzle.json", loc="templates"),
                     p_drizzle,
-                    replacements={"$profile": profile})
+                    replacements={"$profile": profile,
+                                  "$region": region})
 
 
 def add(pos, named, flags):
@@ -69,17 +74,19 @@ def add(pos, named, flags):
                         PolicyName='lambda_logs',
                         PolicyDocument=contents_of(path_to("lambda_policy", loc="templates")))
 
-    # aws('lambda').create_function(
-    #     FunctionName=name,
-    #     Runtime='python3.6',
-    #     Role=role_arn,
-    #     Handler='%s.lambda_handler' % name,
-    #     Description='Created by drizzle',
-    #     # Code=
-    # )
+    build([name])
+
+    with open(path_to('.deploy/build/%s.zip' % name), 'rb') as bundle:
+        aws('lambda').create_function(
+            FunctionName=name,
+            Runtime='python3.6',
+            Role=role_arn,
+            Handler='%s.lambda_handler' % name,
+            Description='Created by drizzle',
+            Code={'ZipFile': bundle.read()})
 
 
-def build(pos, named, flags):
+def build(pos, named={}, flags={}):
     # Able to run from:
     # - command line, within function (with or without pos[0] as name)
     # - project, supplying pos[0] as name of function
@@ -115,7 +122,7 @@ def deploy(pos, named, flags):
 # Compile commands into dictionary
 COMMANDS = [
     Command(drizzle_help, "help", "help.json"),
-    Command(setup, "setup", "setup.json", args=["profile"]),
+    Command(setup, "setup", "setup.json", args=["profile", "region"]),
     Command(add, "add", "add.json"),
     Command(build, "build", "add.json"),
     Command(deploy, "deploy", "deploy.json"),

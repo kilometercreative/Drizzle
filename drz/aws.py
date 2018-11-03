@@ -23,12 +23,14 @@ def config_profile(profile):
 
 
 def aws(service):
-    profile = get_drizzle_json()["AWS Profile"]
+    drizzle = get_drizzle_json()
+    profile = drizzle["profile"]
 
     # todo escape profile name for regex
     access, secret = re.compile(r"\[%s\]\naws_access_key_id = ([^\n]*)\naws_secret_access_key = ([^\n]*)" % profile)\
         .search(contents_of(p_aws_credentials)).groups()
 
     return boto3.client(service,
+                        region_name=drizzle['region'],
                         aws_access_key_id=access,
                         aws_secret_access_key=secret)
