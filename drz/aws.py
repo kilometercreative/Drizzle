@@ -27,7 +27,7 @@ def aws(service):
 
     # todo escape profile name for regex
     access, secret = re.compile(r"\[%s\]\naws_access_key_id = ([^\n]*)\naws_secret_access_key = ([^\n]*)" % profile)\
-        .search(contents_of(p_aws_credentials))
+        .search(contents_of(p_aws_credentials)).groups()
 
     return boto3.client(service,
                         aws_access_key_id=access,

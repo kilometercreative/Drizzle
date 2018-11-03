@@ -1,9 +1,11 @@
 import os
+import json
+import zipfile
 from functools import reduce
 
 from .command import Command
 from .aws import config_profile, aws
-from .helper import path_to, conflicting_exists, write_replacing, contents_of, get_drizzle_json
+from .helper import path_to, conflicting_exists, write_replacing, contents_of, zip_into, get_drizzle_json
 
 
 def drizzle_help(pos, named, flags):
@@ -61,17 +63,52 @@ def add(pos, named, flags):
                     replacements={"$1": name})
 
     iam = aws('iam')
-    iam.create_role(RoleName=role_name,
-                    AssumeRolePolicyDocument=contents_of(path_to("lambda_trust", loc="templates")))
+    role_arn = iam.create_role(RoleName=role_name,
+                               AssumeRolePolicyDocument=contents_of(path_to("lambda_trust", loc="templates")))["Role"]["Arn"]
     iam.put_role_policy(RoleName=role_name,
                         PolicyName='lambda_logs',
                         PolicyDocument=contents_of(path_to("lambda_policy", loc="templates")))
 
-    # boto3.client('lambda').create_function(
-    # boto3.lambda.create_function()
+    # aws('lambda').create_function(
+    #     FunctionName=name,
+    #     Runtime='python3.6',
+    #     Role=role_arn,
+    #     Handler='%s.lambda_handler' % name,
+    #     Description='Created by drizzle',
+    #     # Code=
+    # )
 
 
-def deploy():
+def build(pos, named, flags):
+    # Able to run from:
+    # - command line, within function (with or without pos[0] as name)
+    # - project, supplying pos[0] as name of function
+    # - another function
+
+    # TODO check if this is drizzle function or drizzle project
+
+    if len(pos) > 0:
+        name = pos[0]
+        config = json.loads(contents_of(path_to(name, "config.json")))
+    else:
+        config = json.loads(contents_of(path_to("config.json")))
+        name = 'test'
+
+    # create build folder if it doesn't exist
+    p_build = path_to('.deploy/build')
+    if not os.path.exists(p_build):
+        os.mkdir(p_build)
+
+    # create build zip
+    bundle = zipfile.ZipFile('.deploy/build/%s.zip' % name, 'w', zipfile.ZIP_DEFLATED)
+    bundle.writestr("BUILD.md", contents_of(path_to("BUILD.md", loc="templates")))
+    zip_into(bundle, path_to(name), config["exclude"])
+    zip_into(bundle, path_to("shared"), config["exclude"])
+    zip_into(bundle, path_to("lib"), config["exclude"], include=config["include"])
+    bundle.close()
+
+
+def deploy(pos, named, flags):
     print("DEPLOYING NOW!")
 
 
@@ -80,6 +117,7 @@ COMMANDS = [
     Command(drizzle_help, "help", "help.json"),
     Command(setup, "setup", "setup.json", args=["profile"]),
     Command(add, "add", "add.json"),
+    Command(build, "build", "add.json"),
     Command(deploy, "deploy", "deploy.json"),
 ]
 

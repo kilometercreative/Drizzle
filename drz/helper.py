@@ -43,6 +43,49 @@ def contents_of(path):
     return contents
 
 
+def zip_into(bundle, path, exclude, include=None):
+    for root, dirs, files in os.walk(path):
+        for file in files:
+            if include:
+                should_include = False
+                # todo do it on paths and pass it down?
+            else:
+                should_include = True
+
+            if should_include:
+                for ex in exclude:
+                    if _pattern_matcher(file, ex):
+                        should_include = False
+                        break
+
+            if not should_include:
+                continue
+
+            bundle.write(os.path.relpath(os.path.join(root, file)))
+
+
+def _pattern_matcher(filename, pattern):
+    if not pattern:  # don't match the empty string
+        return False
+
+    def recursive(remaining, parts):
+        if not parts:
+            return True
+
+        if parts[0]:
+            return (not remaining.startswith(parts[0])) and recursive(remaining[len(parts[0]):], parts[1:])
+        elif len(parts) == 1:
+            return True
+        elif not parts[1]:
+            return recursive(remaining, parts[1:])
+        else:
+            if parts[1] in remaining:
+                return recursive(remaining[remaining.index(parts[1])+len(parts[1]):], parts[2:])
+            return False
+
+    return recursive(filename, pattern.split('*'))
+
+
 class DrizzleWrapper:
     def __init__(self, contents):
         self._contents = contents
@@ -59,4 +102,4 @@ def get_drizzle_json():
     if not os.path.exists(p_drizzle):
         raise DrizzleException("Couldn't find drizzle.json")
 
-    return DrizzleWrapper(json.load(contents_of(p_drizzle)))
+    return DrizzleWrapper(json.loads(contents_of(p_drizzle)))
