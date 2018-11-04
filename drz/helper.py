@@ -59,6 +59,10 @@ def zip_into(bundle, path, exclude, include=None):
     """When include is specified, only top-level files that
     pass the include will be bundled."""
 
+    if include:
+        os.chdir(path)
+        path = "."
+
     def add_to_bundle(r, f):
         bundle.write(os.path.relpath(os.path.join(r, f)))
 

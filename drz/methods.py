@@ -100,7 +100,6 @@ def build(pos=None, named=None, flags=None):
         os.chdir("..")
 
     p_config = path_to(name, "config.json")
-    print(p_config)
     if not os.path.exists(p_config):
         raise DrizzleException("Couldn't find config.json for function '%s'" % name)
     config = DrizzleWrapper("config.json", p_config)
