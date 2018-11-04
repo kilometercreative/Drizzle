@@ -1,6 +1,8 @@
 import os
 import json
 import zipfile
+import base64
+import time
 from functools import reduce
 
 from .command import Command
@@ -47,7 +49,7 @@ def setup(pos, named, flags):
                                   "$region": region})
 
 
-def add(pos, named, flags):
+def add(pos, named=None, flags=None):
     if len(pos) != 1:
         return print("Usage: drz add <name>")
 
@@ -74,7 +76,10 @@ def add(pos, named, flags):
                         PolicyName='lambda_logs',
                         PolicyDocument=contents_of(path_to("lambda_policy", loc="templates")))
 
-    build([name])
+    build([name], None, None)
+
+    print("Waiting 15 seconds for newly-created role to go live...")
+    time.sleep(15)  # wait for IAM role to go live
 
     with open(path_to('.deploy/build/%s.zip' % name), 'rb') as bundle:
         aws('lambda').create_function(
@@ -86,11 +91,10 @@ def add(pos, named, flags):
             Code={'ZipFile': bundle.read()})
 
 
-def build(pos=None, named=None, flags=None):
+def build(pos, named, flags):
     # Able to run from:
     # - command line, within function (with or without pos[0] as name)
     # - project, supplying pos[0] as name of function
-    # - another function
 
     # if drizzle function
     if len(pos) > 0:
@@ -119,7 +123,70 @@ def build(pos=None, named=None, flags=None):
 
 
 def deploy(pos, named, flags):
-    print("DEPLOYING NOW!")
+    # Able to run from:
+    # - command line, within function (with or without pos[0] as name)
+    # - project, supplying pos[0] as name of function
+
+    if len(pos) > 0:
+        name = pos[0]
+    else:
+        name = os.path.basename(os.getcwd())
+        os.chdir("..")
+
+    build([name], None, None)
+
+    lam = aws('lambda')
+
+    with open(path_to('.deploy/build/%s.zip' % name), 'rb') as bundle:
+        lam.update_function_code(
+            FunctionName=name,
+            ZipFile=bundle.read())
+
+    with open(path_to(name, 'config.json'), 'r') as config_file:
+        config = json.load(config_file)["aws"]
+
+        payload = {
+            "FunctionName": config["function-name"],
+            "Handler": config["handler"],
+            "Description": config["description"],
+            "Timeout": config["timeout"],
+            "MemorySize": config["memory-size"],
+            "Environment": config["environment"]
+        }
+
+        lam.update_function_configuration(**payload)
+
+
+def test(pos, named, flags):
+    # Able to run from:
+    # - command line, within function (with or without pos[0] as name)
+    # - project, supplying pos[0] as name of function
+
+    if len(pos) > 0:
+        name = pos[0]
+    else:
+        name = os.path.basename(os.getcwd())
+        os.chdir("..")
+
+    lam = aws('lambda')
+
+    p_test = path_to('.deploy', 'tests', '%s.json' % name)
+    if not os.path.exists(p_test):
+        raise DrizzleException("Couldn't find %s.json in .deploy/tests" % name)
+
+    with open(p_test, 'r') as tests:
+        filtered_tests = "".join(filter(lambda l: not l.startswith("//"), tests.readlines()))
+        results = lam.invoke(FunctionName=name,
+                             LogType='Tail',
+                             Payload=bytes(filtered_tests, encoding='utf-8'))
+
+    print("*** RESPONSE ***")
+    print("\n*** STATUS ***")
+    print(results["StatusCode"])
+    print("\n*** LOGS ***")
+    print(str(base64.b64decode(results['LogResult']), encoding="utf-8"))
+    print("\n*** PAYLOAD ***")
+    print(results["Payload"].read())
 
 
 # Compile commands into dictionary
@@ -129,6 +196,7 @@ COMMANDS = [
     Command(add, "add", "add.json"),
     Command(build, "build", "add.json"),
     Command(deploy, "deploy", "deploy.json"),
+    Command(test, "test", "deploy.json"),
 ]
 
 COMMAND_MAP = reduce(lambda acc, c: {**acc, c.name: c}, COMMANDS, {})

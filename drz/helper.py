@@ -7,7 +7,8 @@ class DrizzleWrapper:
 
     def __init__(self, file_name, path):
         self._file_name = file_name
-        self._contents = json.loads(contents_of(path))
+        with open(path, 'r') as file:
+            self._contents = json.load(file)
 
     def __getitem__(self, item):
         if item in self._contents:

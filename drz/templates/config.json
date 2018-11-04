@@ -10,6 +10,7 @@
     "handler": "$1.lambda_handler",
     "description": "The $1 lambda function",
     "timeout": 3,
+    "memory-size": 128,
     "environment": {
       "Variables": {
       }
