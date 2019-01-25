@@ -60,6 +60,8 @@ def zip_into(bundle, path, exclude, include=None):
     """When include is specified, only top-level files that
     pass the include will be bundled."""
 
+    wd = os.getcwd()
+
     if include:
         os.chdir(path)
         path = "."
@@ -92,6 +94,8 @@ def zip_into(bundle, path, exclude, include=None):
             else:
                 add_to_bundle(root, file)
 
+    os.chdir(wd)
+
 
 def _pattern_matcher(filename, pattern):
     if not pattern:  # don't match the empty string
@@ -119,6 +123,6 @@ def get_drizzle_json():
     p_drizzle = path_to("drizzle.json")
 
     if not os.path.exists(p_drizzle):
-        raise DrizzleException("Couldn't find drizzle.json")
+        raise DrizzleException("Couldn't find drizzle.json at "+os.getcwd())
 
     return DrizzleWrapper("drizzle.json", p_drizzle)

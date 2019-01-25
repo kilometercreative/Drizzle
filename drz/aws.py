@@ -16,7 +16,9 @@ def config_profile(profile):
     access = input("AWS Access Key ID: ")
     secret = input("AWS Secret Access Key: ")
 
-    os.makedirs(os.path.dirname(p_aws_credentials))
+    if not os.path.exists(os.path.dirname(p_aws_credentials)):
+        os.makedirs(os.path.dirname(p_aws_credentials))
+
     aws_creds = open(p_aws_credentials, 'a')
     aws_creds.write("\n[%s]\naws_access_key_id = %s\naws_secret_access_key = %s" % (profile, access, secret))
     aws_creds.close()

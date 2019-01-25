@@ -11,8 +11,9 @@ from .helper import DrizzleWrapper, path_to, conflicting_exists, write_replacing
 from .errors import DrizzleException
 
 
+# TODO it just doesn't work yet
 def drizzle_help(pos, named, flags):
-    if pos[0]:
+    if len(pos) > 0:
         print("Retrieving help for %s" % pos[0])
     else:
         print("Commands: ")
@@ -194,9 +195,9 @@ COMMANDS = [
     Command(drizzle_help, "help", "help.json"),
     Command(setup, "setup", "setup.json", args=["profile", "region"]),
     Command(add, "add", "add.json"),
-    Command(build, "build", "add.json"),
+    Command(build, "build", "build.json"),
     Command(deploy, "deploy", "deploy.json"),
-    Command(test, "test", "deploy.json"),
+    Command(test, "test", "test.json"),
 ]
 
 COMMAND_MAP = reduce(lambda acc, c: {**acc, c.name: c}, COMMANDS, {})

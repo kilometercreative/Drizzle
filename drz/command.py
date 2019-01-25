@@ -43,4 +43,4 @@ class Command:
         return {"pos": positional_args, "named": named_args, "flags": flags}
 
     def docs(self):
-        return json.load(contents_of(path_to(self._docs, loc='docs')))
+        return json.loads(contents_of(path_to(self._docs, loc='docs')))
